@@ -52,8 +52,8 @@
 * 统计相邻的两个字符出现频率，并将频率最高的相邻字符合并
 * 最终的符号词汇量大小等于初始词汇量的大小，加上合并操作的数量——合并操作是算法的唯一超参数
 # 4. 参考
-* [BPE源码]（https://github.com/rsennrich/subword-nmt）
-* [BPE论文]（https://arxiv.org/abs/1508.07909）
+* [BPE源码](https://github.com/rsennrich/subword-nmt)
+* [BPE论文](https://arxiv.org/abs/1508.07909)
 
         
     
