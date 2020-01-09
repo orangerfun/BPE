@@ -42,10 +42,6 @@
 **STEP3.对于测试集和验证集使用相同的方法**
 
     subword-nmt/apply_bpe.py -c codes_file --vocabulary vocab_file.L1 --vocabulary-threshold 50 < test_file.L1 > test_file.BPE.L1
-    
-**注意事项**
-* 上面代码使用的命令行格式，使用前先去[githup](https://github.com/rsennrich/subword-nmt)下载源码，也可以直接使用`pip install subword-nmt`安装相应包后调用，详见githup
-* 在对中文使用BPE前，需要先对中文语料分词（Hanlp, jieba等）
 
 # 3.BPE原理
 * 将每个单词表示为字符序列，加上一个特殊的单词末尾符号“</w>”（结束符号用来还原翻译的结果）
@@ -53,8 +49,18 @@
 * 最终的符号词汇量大小等于初始词汇量的大小，加上合并操作的数量——合并操作是算法的唯一超参数
 
 # 4. 脚本程序说明
+* `bpe_segment_org2.0.sh`使用joint方式进行BPE分词
+* `bpe_org.sh`使用joint方式进行BPE分词
+* `bpe_segment_sep.sh`对中英文分别进行BPE分词，非joint方式
+* `bpe_segment_all.sh`是`bpe_segment_sep.sh`改进版，几乎一样
 
-# 5. 参考
+# 注意事项
+* 上面代码使用的命令行格式，使用前先去[githup](https://github.com/rsennrich/subword-nmt)下载源码，也可以直接使用`pip install subword-nmt`安装相应包后调用，详见githup
+* 在对中文使用BPE前，需要先对中文语料分词（Hanlp, jieba等）
+* 超参数迭代次数`num_operation`的设置：一般设置略小于词汇表大小，比如说词汇表大小是36000，这个参数可以设置成32000
+* 两种语言放一起训练（joint方式）的前提是他们属于同一个语系比如说英文和德文，都属于阿拉伯语系， 但是中文和英文不属于同一个语系，所以要分开
+
+# 6. 参考
 * [BPE源码](https://github.com/rsennrich/subword-nmt)
 * [BPE论文](https://arxiv.org/abs/1508.07909)
 
