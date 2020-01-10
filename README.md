@@ -48,11 +48,13 @@
 * 统计相邻的两个字符出现频率，并将频率最高的相邻字符合并
 * 最终的符号词汇量大小等于初始词汇量的大小，加上合并操作的数量——合并操作是算法的唯一超参数
 
-# 4. 脚本程序说明
+# 4. 程序说明
 * `bpe_segment_org2.0.sh`使用joint方式进行BPE分词
 * `bpe_org.sh`使用joint方式进行BPE分词
 * `bpe_segment_sep.sh`对中英文分别进行BPE分词，非joint方式
 * `bpe_segment_all.sh`是`bpe_segment_sep.sh`改进版，几乎一样
+* `get_vocab_org.py`获取词汇表，方便后面机器翻译的使用
+* `cal_word`计算原始语料中词表大小
 
 # 注意事项
 * 上面代码使用的命令行格式，使用前先去[githup](https://github.com/rsennrich/subword-nmt)下载源码，也可以直接使用`pip install subword-nmt`安装相应包后调用，详见githup
